@@ -195,6 +195,17 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
+        /* Product Category Card Images */
+        .product-category-card img {
+            width: 100%;
+            height: 150px; /* Fixed height for category images */
+            object-fit: contain; /* Ensure full image is visible */
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            background-color: #F8F8F8; /* Light background for category images */
+            padding: 10px; /* Padding inside the light background */
+        }
+
         /* Carousel specific styles */
         #productCarousel .carousel-item img {
             width: 100%;
@@ -291,28 +302,32 @@
             <h2 class="display-4 fw-bold text-center mb-5 text-primary-accent">Our Product Categories</h2>
             <div class="row g-4 justify-content-center">
                 <div class="col-6 col-md-3">
-                    <div class="card card-custom h-100 text-center rounded-xl bg-primary-accent">
+                    <div class="card card-custom h-100 text-center rounded-xl product-category-card">
+                        <img src="img/tshirt.png" alt="T-SHIRTS" onerror="this.onerror=null;this.src='https://placehold.co/150x150/F8F8F8/224229?text=T-SHIRTS';" class="img-fluid">
                         <div class="card-body d-flex flex-column justify-content-center">
                             <h3 class="card-title fs-4 fw-semibold text-white">T-SHIRTS</h3>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="card card-custom h-100 text-center rounded-xl bg-primary-accent">
+                    <div class="card card-custom h-100 text-center rounded-xl product-category-card">
+                        <img src="img/sweatshirt.webp" alt="SWEATSHIRTS" onerror="this.onerror=null;this.src='https://placehold.co/150x150/F8F8F8/224229?text=SWEATSHIRTS';" class="img-fluid">
                         <div class="card-body d-flex flex-column justify-content-center">
                             <h3 class="card-title fs-4 fw-semibold text-white">SWEATSHIRTS</h3>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="card card-custom h-100 text-center rounded-xl bg-primary-accent">
+                    <div class="card card-custom h-100 text-center rounded-xl product-category-card">
+                        <img src="img/joggers.webp" alt="JOGGERS" onerror="this.onerror=null;this.src='https://placehold.co/150x150/F8F8F8/224229?text=JOGGERS';" class="img-fluid">
                         <div class="card-body d-flex flex-column justify-content-center">
                             <h3 class="card-title fs-4 fw-semibold text-white">JOGGERS</h3>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="card card-custom h-100 text-center rounded-xl bg-primary-accent">
+                    <div class="card card-custom h-100 text-center rounded-xl product-category-card">
+                        <img src="img/hoodie.webp" alt="HOODIES" onerror="this.onerror=null;this.src='https://placehold.co/150x150/F8F8F8/224229?text=HOODIES';" class="img-fluid">
                         <div class="card-body d-flex flex-column justify-content-center">
                             <h3 class="card-title fs-4 fw-semibold text-white">HOODIES</h3>
                         </div>
@@ -584,10 +599,10 @@
                 // we simulate loading images by providing an array of expected image filenames.
                 // You MUST ensure these files exist in your /img/products/ folder.
                 const productImages = [
-                    { src: 'img/tshirt.png', alt: 'Organic T-Shirt', title: 'Organic T-Shirt', description: 'Comfortable and sustainable.' },
-                    { src: 'img/sweatshirt.webp', alt: 'Eco Sweatshirt', title: 'Eco Sweatshirt', description: 'Warm and ethically made.' },
-                    { src: 'img/joggers.webp', alt: 'Unisex Joggers', title: 'Unisex Joggers', description: 'Perfect for comfort and style.' },
-                    { src: 'img/hoodie.webp', alt: 'Sustainable Hoodie', title: 'Sustainable Hoodie', description: 'Soft, durable, and eco-friendly.' },
+                    { src: 'img/products/tshirt_product.webp', alt: 'Organic T-Shirt', title: 'Organic T-Shirt', description: 'Comfortable and sustainable.' },
+                    { src: 'img/products/sweatshirt_product.webp', alt: 'Eco Sweatshirt', title: 'Eco Sweatshirt', description: 'Warm and ethically made.' },
+                    { src: 'img/products/joggers_product.webp', alt: 'Unisex Joggers', title: 'Unisex Joggers', description: 'Perfect for comfort and style.' },
+                    { src: 'img/products/hoodie_product.webp', alt: 'Sustainable Hoodie', title: 'Sustainable Hoodie', description: 'Soft, durable, and eco-friendly.' },
                     { src: 'https://placehold.co/800x400/224229/FFFFFF?text=Product+5', alt: 'Placeholder Product 5', title: 'Eco Socks', description: 'Soft and naturally breathable.' },
                     { src: 'https://placehold.co/800x400/224229/FFFFFF?text=Product+6', alt: 'Placeholder Product 6', title: 'Recycled Cap', description: 'Stylish and made from recycled materials.' }
                     // Add more product images here following the same structure

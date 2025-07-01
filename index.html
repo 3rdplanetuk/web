@@ -7,6 +7,9 @@
     <meta name="description" content="3rd Planet UK: Ethically made, eco-friendly streetwear. Explore our 100% organic cotton T-shirts, Hoodies, Sweatshirts, and Joggers. Join Keep Me® Rewards.">
     <meta name="keywords" content="sustainable clothing, ethical fashion, eco-friendly apparel, organic cotton, recycled materials, UK fashion, conscious consumerism, slow fashion, environmental impact, responsible manufacturing, T-shirts, Hoodies, Sweatshirts, Joggers, Keep Me Rewards, track wears">
 
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.webp" type="image/webp">
+
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -254,7 +257,7 @@
         </div>
 
         <div class="container position-relative z-1 p-4 animate-on-load" style="transition-delay: 0.2s;">
-            <img src="imgi_136_3rdplanet-logo-320x132-1.webp" alt="3rd Planet UK Logo"
+            <img src="img/logo.webp" alt="3rd Planet UK Logo"
                  class="img-fluid mb-4 rounded shadow-lg" style="max-width: 320px;"
                  onerror="this.onerror=null;this.src='https://placehold.co/320x132/224229/FFFFFF?text=3rd+Planet+Logo';">
             <h1 class="display-3 fw-bolder mb-3 text-secondary-accent drop-shadow">3rd Planet UK</h1>
@@ -327,7 +330,7 @@
 
             <div class="row g-4 align-items-center">
                 <div class="col-md-6 order-md-2">
-                    <img src="https://placehold.co/600x400/A5D6A7/224229?text=Keep+Me+QR+Code" alt="Keep Me QR Code" class="img-fluid rounded-xl shadow-lg mb-4 mb-md-0">
+                    <img src="img/keepmerewards.webp" alt="Keep Me QR Code" class="img-fluid rounded-xl shadow-lg mb-4 mb-md-0" onerror="this.onerror=null;this.src='https://placehold.co/600x400/A5D6A7/224229?text=Keep+Me+QR+Code';">
                 </div>
                 <div class="col-md-6 order-md-1">
                     <h3 class="fs-2 fw-bold mb-3 text-secondary-accent">Track Your Number of Wears</h3>
@@ -342,7 +345,7 @@
 
             <div class="row g-4 align-items-center mt-5">
                 <div class="col-md-6">
-                    <img src="https://placehold.co/600x400/66BB6A/F8F8F8?text=Environmental+Contribution" alt="Environmental Contribution" class="img-fluid rounded-xl shadow-lg mb-4 mb-md-0">
+                    <img src="img/keepmerewards.webp" alt="Environmental Contribution" class="img-fluid rounded-xl shadow-lg mb-4 mb-md-0" onerror="this.onerror=null;this.src='https://placehold.co/600x400/66BB6A/F8F8F8?text=Environmental+Contribution';">
                 </div>
                 <div class="col-md-6">
                     <h3 class="fs-2 fw-bold mb-3 text-secondary-accent">Your Environmental Contribution</h3>
@@ -357,7 +360,7 @@
 
             <div class="row g-4 align-items-center mt-5">
                 <div class="col-md-6 order-md-2">
-                    <img src="https://placehold.co/600x400/2C5F36/FFFFFF?text=Unlock+Rewards" alt="Unlock Keep Me Rewards" class="img-fluid rounded-xl shadow-lg mb-4 mb-md-0">
+                    <img src="img/keepmerewards.webp" alt="Unlock Keep Me Rewards" class="img-fluid rounded-xl shadow-lg mb-4 mb-md-0" onerror="this.onerror=null;this.src='https://placehold.co/600x400/2C5F36/FFFFFF?text=Unlock+Rewards';">
                 </div>
                 <div class="col-md-6 order-md-1">
                     <h3 class="fs-2 fw-bold mb-3 text-secondary-accent">Unlock Your Keep Me® Rewards</h3>
@@ -518,7 +521,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const backgroundVideo = document.getElementById('backgroundVideo');
-            const logoPath = 'imgi_136_3rdplanet-logo-320x132-1.webp'; // Path to the uploaded logo
+            const logoPath = 'img/logo.webp'; // Path to the uploaded logo
             const currentYearSpan = document.getElementById('currentYear');
             const orderForm = document.getElementById('orderForm');
             const formMessage = document.getElementById('formMessage');
@@ -581,12 +584,12 @@
                 // we simulate loading images by providing an array of expected image filenames.
                 // You MUST ensure these files exist in your /img/products/ folder.
                 const productImages = [
-                    { src: 'img/products/tshirt1.webp', alt: 'Organic T-Shirt', title: 'Organic T-Shirt', description: 'Comfortable and sustainable.' },
-                    { src: 'img/products/sweatshirt1.webp', alt: 'Eco Sweatshirt', title: 'Eco Sweatshirt', description: 'Warm and ethically made.' },
-                    { src: 'img/products/jogger1.webp', alt: 'Unisex Joggers', title: 'Unisex Joggers', description: 'Perfect for comfort and style.' },
-                    { src: 'img/products/hoodie1.webp', alt: 'Sustainable Hoodie', title: 'Sustainable Hoodie', description: 'Soft, durable, and eco-friendly.' },
-                    { src: 'img/products/tshirt2.webp', alt: 'Graphic Tee', title: 'Graphic Tee', description: 'Unique designs, organic fabric.' },
-                    { src: 'img/products/sweatshirt2.webp', alt: 'Recycled Sweatshirt', title: 'Recycled Sweatshirt', description: 'Made from recycled materials.' }
+                    { src: 'img/tshirt.png', alt: 'Organic T-Shirt', title: 'Organic T-Shirt', description: 'Comfortable and sustainable.' },
+                    { src: 'img/sweatshirt.webp', alt: 'Eco Sweatshirt', title: 'Eco Sweatshirt', description: 'Warm and ethically made.' },
+                    { src: 'img/joggers.webp', alt: 'Unisex Joggers', title: 'Unisex Joggers', description: 'Perfect for comfort and style.' },
+                    { src: 'img/hoodie.webp', alt: 'Sustainable Hoodie', title: 'Sustainable Hoodie', description: 'Soft, durable, and eco-friendly.' },
+                    { src: 'https://placehold.co/800x400/224229/FFFFFF?text=Product+5', alt: 'Placeholder Product 5', title: 'Eco Socks', description: 'Soft and naturally breathable.' },
+                    { src: 'https://placehold.co/800x400/224229/FFFFFF?text=Product+6', alt: 'Placeholder Product 6', title: 'Recycled Cap', description: 'Stylish and made from recycled materials.' }
                     // Add more product images here following the same structure
                 ];
 

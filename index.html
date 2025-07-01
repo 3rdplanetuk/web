@@ -78,16 +78,15 @@
         /* Ensure video covers height on mobile */
         @media (max-width: 768px) {
             .video-background iframe {
-                /* On mobile, prioritize covering the height, let width overflow if needed */
-                width: 100%;
-                height: 100vh; /* Cover full viewport height */
-                min-width: 100%; /* Ensure it's at least 100% width */
-                min-height: 100%; /* Ensure it's at least 100% height */
-                position: absolute; /* Re-apply absolute positioning */
+                /* Make it significantly larger to ensure full coverage, then center */
+                min-width: 300%;
+                min-height: 300%;
+                width: auto;
+                height: auto;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%); /* Center it */
-                object-fit: cover; /* Ensure it covers the space */
+                transform: translate(-50%, -50%);
+                object-fit: cover;
             }
         }
 
@@ -213,7 +212,7 @@
 
         /* --- Logo Section Background --- */
         .logo-section-bg {
-            background-color: rgba(255, 255, 255, 0.95); /* Even whiter background for logo */
+            background-color: rgba(255, 255, 255, 0.98); /* Even whiter background for logo, near opaque */
             padding: 1rem 2rem;
             border-radius: 0.75rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);

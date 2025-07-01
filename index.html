@@ -75,6 +75,17 @@
             transform: translate(-50%, -50%);
             object-fit: cover; /* Ensures the video covers the area without distortion */
         }
+        /* Ensure video covers height on mobile */
+        @media (max-width: 768px) {
+            .video-background iframe {
+                min-height: 100vh; /* Ensure it covers full viewport height */
+                min-width: 100vw; /* Ensure it covers full viewport width */
+                width: auto;
+                height: auto;
+                transform: translate(-50%, -50%);
+            }
+        }
+
 
         .overlay {
             position: absolute;
@@ -203,25 +214,43 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        /* Product Category Card Images */
+        /* --- Product Category Card Images (New Layout) --- */
+        .product-category-card {
+            position: relative; /* For overlay text positioning */
+            overflow: hidden;
+            background-color: var(--color-dark-primary); /* Dark background for the card itself */
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+        .product-category-card:hover {
+            transform: scale(1.03); /* Slight zoom on hover */
+        }
         .product-category-card img {
-            width: 100px; /* Fixed width for portrait images */
-            height: 150px; /* Fixed height for portrait images */
-            object-fit: contain; /* Ensure full image is visible */
-            border-radius: 0.5rem;
-            margin-bottom: 0.5rem; /* Reduced margin */
-            background-color: #F8F8F8; /* Light background for category images */
-            padding: 10px; /* Padding inside the light background */
+            width: 100%;
+            height: 400px; /* Fixed height for portrait images */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease-in-out;
         }
-        .product-category-card .card-body {
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center content horizontally */
-            justify-content: center;
-            padding: 1rem; /* Adjust padding */
+        .product-category-card:hover img {
+            transform: scale(1.05); /* Slight zoom on image on hover */
         }
-        .product-category-card .card-title {
-            margin-top: 0.5rem; /* Space between image and title */
+        .product-category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0)); /* Gradient for text readability */
+            padding: 1rem;
+            color: var(--color-text-on-dark);
+            text-align: center;
+        }
+        .product-category-overlay h3 {
+            margin-bottom: 0;
+            font-size: 1.8rem; /* Larger font for category headers */
+            font-weight: 700;
+            color: var(--color-accent-secondary); /* Accent color for category headers */
         }
 
 
@@ -273,8 +302,8 @@
         .hover-blue-dark:hover { color: #0056b3 !important; }
 
         /* --- Footer Text Visibility Fix --- */
-        footer .text-muted {
-            color: var(--color-text-on-dark) !important; /* Force white text */
+        footer .text-white {
+            color: var(--color-text-on-dark) !important; /* Ensure white text */
         }
 
     </style>
@@ -330,35 +359,35 @@
         <div class="container">
             <h2 class="display-4 fw-bold text-center mb-5 text-primary-accent">Our Product Categories</h2>
             <div class="row g-4 justify-content-center">
-                <div class="col-6 col-md-3">
-                    <div class="card card-custom h-100 text-center rounded-xl product-category-card">
-                        <img src="img/tshirt.png" alt="T-SHIRTS" onerror="this.onerror=null;this.src='https://placehold.co/150x150/F8F8F8/224229?text=T-SHIRTS';" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="card-title fs-4 fw-semibold text-white">T-SHIRTS</h3>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card product-category-card">
+                        <img src="img/tshirt.png" alt="T-SHIRTS" onerror="this.onerror=null;this.src='https://placehold.co/300x400/224229/FFFFFF?text=T-SHIRTS';" class="img-fluid">
+                        <div class="product-category-overlay">
+                            <h3>T-SHIRTS</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="card card-custom h-100 text-center rounded-xl product-category-card">
-                        <img src="img/sweatshirt.webp" alt="SWEATSHIRTS" onerror="this.onerror=null;this.src='https://placehold.co/150x150/F8F8F8/224229?text=SWEATSHIRTS';" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="card-title fs-4 fw-semibold text-white">SWEATSHIRTS</h3>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card product-category-card">
+                        <img src="img/sweatshirt.webp" alt="SWEATSHIRTS" onerror="this.onerror=null;this.src='https://placehold.co/300x400/224229/FFFFFF?text=SWEATSHIRTS';" class="img-fluid">
+                        <div class="product-category-overlay">
+                            <h3>SWEATSHIRTS</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="card card-custom h-100 text-center rounded-xl product-category-card">
-                        <img src="img/joggers.webp" alt="JOGGERS" onerror="this.onerror=null;this.src='https://placehold.co/150x150/F8F8F8/224229?text=JOGGERS';" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="card-title fs-4 fw-semibold text-white">JOGGERS</h3>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card product-category-card">
+                        <img src="img/joggers.webp" alt="JOGGERS" onerror="this.onerror=null;this.src='https://placehold.co/300x400/224229/FFFFFF?text=JOGGERS';" class="img-fluid">
+                        <div class="product-category-overlay">
+                            <h3>JOGGERS</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-md-3">
-                    <div class="card card-custom h-100 text-center rounded-xl product-category-card">
-                        <img src="img/hoodie.webp" alt="HOODIES" onerror="this.onerror=null;this.src='https://placehold.co/150x150/F8F8F8/224229?text=HOODIES';" class="img-fluid">
-                        <div class="card-body">
-                            <h3 class="card-title fs-4 fw-semibold text-white">HOODIES</h3>
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card product-category-card">
+                        <img src="img/hoodie.webp" alt="HOODIES" onerror="this.onerror=null;this.src='https://placehold.co/300x400/224229/FFFFFF?text=HOODIES';" class="img-fluid">
+                        <div class="product-category-overlay">
+                            <h3>HOODIES</h3>
                         </div>
                     </div>
                 </div>

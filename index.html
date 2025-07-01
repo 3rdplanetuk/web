@@ -195,23 +195,45 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
+        /* --- Logo Section Background --- */
+        .logo-section-bg {
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
         /* Product Category Card Images */
         .product-category-card img {
-            width: 100%;
-            height: 150px; /* Fixed height for category images */
+            width: 100px; /* Fixed width for portrait images */
+            height: 150px; /* Fixed height for portrait images */
             object-fit: contain; /* Ensure full image is visible */
             border-radius: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem; /* Reduced margin */
             background-color: #F8F8F8; /* Light background for category images */
             padding: 10px; /* Padding inside the light background */
         }
+        .product-category-card .card-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            justify-content: center;
+            padding: 1rem; /* Adjust padding */
+        }
+        .product-category-card .card-title {
+            margin-top: 0.5rem; /* Space between image and title */
+        }
+
 
         /* Carousel specific styles */
         #productCarousel .carousel-item img {
-            width: 100%;
-            height: 400px; /* Fixed height for carousel images */
-            object-fit: cover;
+            width: auto; /* Allow width to adjust */
+            height: 500px; /* Increased height for portrait */
+            max-width: 350px; /* Max width for portrait images in landscape carousel */
+            object-fit: contain; /* Ensure full image is visible */
             border-radius: 0.75rem;
+            display: block; /* Ensure centering works */
+            margin: 0 auto; /* Center image horizontally in carousel item */
         }
 
         #productCarousel .carousel-caption {
@@ -250,6 +272,11 @@
         .hover-blue-light:hover { color: #17a2b8 !important; }
         .hover-blue-dark:hover { color: #0056b3 !important; }
 
+        /* --- Footer Text Visibility Fix --- */
+        footer .text-muted {
+            color: var(--color-text-on-dark) !important; /* Force white text */
+        }
+
     </style>
 </head>
 <body>
@@ -268,9 +295,11 @@
         </div>
 
         <div class="container position-relative z-1 p-4 animate-on-load" style="transition-delay: 0.2s;">
-            <img src="img/logo.webp" alt="3rd Planet UK Logo"
-                 class="img-fluid mb-4 rounded shadow-lg" style="max-width: 320px;"
-                 onerror="this.onerror=null;this.src='https://placehold.co/320x132/224229/FFFFFF?text=3rd+Planet+Logo';">
+            <div class="logo-section-bg d-inline-block mb-4">
+                <img src="img/logo.webp" alt="3rd Planet UK Logo"
+                     class="img-fluid rounded shadow-lg" style="max-width: 320px;"
+                     onerror="this.onerror=null;this.src='https://placehold.co/320x132/224229/FFFFFF?text=3rd+Planet+Logo';">
+            </div>
             <h1 class="display-3 fw-bolder mb-3 text-secondary-accent drop-shadow">3rd Planet UK</h1>
             <p class="lead fw-normal mb-4 drop-shadow">Sustainable Clothing for Men and Women</p>
             <div class="bg-danger bg-opacity-75 p-4 rounded-lg shadow-lg d-inline-block">
@@ -304,7 +333,7 @@
                 <div class="col-6 col-md-3">
                     <div class="card card-custom h-100 text-center rounded-xl product-category-card">
                         <img src="img/tshirt.png" alt="T-SHIRTS" onerror="this.onerror=null;this.src='https://placehold.co/150x150/F8F8F8/224229?text=T-SHIRTS';" class="img-fluid">
-                        <div class="card-body d-flex flex-column justify-content-center">
+                        <div class="card-body">
                             <h3 class="card-title fs-4 fw-semibold text-white">T-SHIRTS</h3>
                         </div>
                     </div>
@@ -312,7 +341,7 @@
                 <div class="col-6 col-md-3">
                     <div class="card card-custom h-100 text-center rounded-xl product-category-card">
                         <img src="img/sweatshirt.webp" alt="SWEATSHIRTS" onerror="this.onerror=null;this.src='https://placehold.co/150x150/F8F8F8/224229?text=SWEATSHIRTS';" class="img-fluid">
-                        <div class="card-body d-flex flex-column justify-content-center">
+                        <div class="card-body">
                             <h3 class="card-title fs-4 fw-semibold text-white">SWEATSHIRTS</h3>
                         </div>
                     </div>
@@ -320,7 +349,7 @@
                 <div class="col-6 col-md-3">
                     <div class="card card-custom h-100 text-center rounded-xl product-category-card">
                         <img src="img/joggers.webp" alt="JOGGERS" onerror="this.onerror=null;this.src='https://placehold.co/150x150/F8F8F8/224229?text=JOGGERS';" class="img-fluid">
-                        <div class="card-body d-flex flex-column justify-content-center">
+                        <div class="card-body">
                             <h3 class="card-title fs-4 fw-semibold text-white">JOGGERS</h3>
                         </div>
                     </div>
@@ -328,7 +357,7 @@
                 <div class="col-6 col-md-3">
                     <div class="card card-custom h-100 text-center rounded-xl product-category-card">
                         <img src="img/hoodie.webp" alt="HOODIES" onerror="this.onerror=null;this.src='https://placehold.co/150x150/F8F8F8/224229?text=HOODIES';" class="img-fluid">
-                        <div class="card-body d-flex flex-column justify-content-center">
+                        <div class="card-body">
                             <h3 class="card-title fs-4 fw-semibold text-white">HOODIES</h3>
                         </div>
                     </div>
@@ -525,8 +554,8 @@
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
-            <p class="text-muted mb-2">Email: info@3rdplanet.uk | Phone: +44 1234 567890</p>
-            <p class="text-muted">&copy; <span id="currentYear"></span> 3rd Planet UK. All rights reserved.</p>
+            <p class="text-white mb-2">Email: info@3rdplanet.uk | Phone: +44 1234 567890</p>
+            <p class="text-white">&copy; <span id="currentYear"></span> 3rd Planet UK. All rights reserved.</p>
         </div>
     </footer>
 
@@ -624,8 +653,8 @@
                     }
 
                     carouselItem.innerHTML = `
-                        <img src="${product.src}" class="d-block w-100" alt="${product.alt}"
-                             onerror="this.onerror=null;this.src='https://placehold.co/800x400/224229/FFFFFF?text=${product.title.replace(/\s/g, '+')}';">
+                        <img src="${product.src}" class="d-block" alt="${product.alt}"
+                             onerror="this.onerror=null;this.src='https://placehold.co/350x500/224229/FFFFFF?text=${product.title.replace(/\s/g, '+')}';">
                         <div class="carousel-caption d-none d-md-block">
                             <h5>${product.title}</h5>
                             <p>${product.description}</p>

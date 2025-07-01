@@ -66,23 +66,23 @@
 
         .video-background iframe {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
+            top: 0; /* Changed from 50% */
+            left: 0; /* Changed from 50% */
+            width: 100%; /* Changed from auto */
+            height: 100%; /* Changed from auto */
+            transform: none; /* Removed transform */
             object-fit: cover; /* Ensures the video covers the area without distortion */
         }
-        /* Ensure video covers height on mobile */
+        /* Ensure video covers height on mobile (simplified as it's now covered by general iframe rules) */
         @media (max-width: 768px) {
             .video-background iframe {
-                min-height: 100vh; /* Ensure it covers full viewport height */
-                min-width: 100vw; /* Ensure it covers full viewport width */
-                width: auto;
-                height: auto;
-                transform: translate(-50%, -50%);
+                /* These rules are now largely redundant due to the general iframe rules above,
+                   but kept for explicit clarity that it should cover. */
+                min-height: 100vh;
+                min-width: 100vw;
+                width: 100%; /* Ensure it takes 100% of parent width */
+                height: 100%; /* Ensure it takes 100% of parent height */
+                object-fit: cover;
             }
         }
 
@@ -208,7 +208,7 @@
 
         /* --- Logo Section Background --- */
         .logo-section-bg {
-            background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+            background-color: rgba(255, 255, 255, 0.9); /* Much whiter background for logo */
             padding: 1rem 2rem;
             border-radius: 0.75rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);

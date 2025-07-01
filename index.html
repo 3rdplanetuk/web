@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3rd Planet UK - Sustainable Clothing & Ethical Fashion</title>
+    <meta name="description" content="3rd Planet UK: Ethically made, eco-friendly streetwear. Explore our 100% organic cotton T-shirts, Hoodies, Sweatshirts, and Joggers. Join Keep Me® Rewards.">
+    <meta name="keywords" content="sustainable clothing, ethical fashion, eco-friendly apparel, organic cotton, recycled materials, UK fashion, conscious consumerism, slow fashion, environmental impact, responsible manufacturing, T-shirts, Hoodies, Sweatshirts, Joggers, Keep Me Rewards, track wears">
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        /* Custom CSS for overall styling, video, and animations */
+        :root {
+            /* Preferred Color Palette (Inspired by 3rdplanet.uk) */
+            --color-dark-primary: #224229; /* Deep Forest Green */
+            --color-light-bg: #F8F8F8; /* Off-white */
+            --color-accent-primary: #66BB6A; /* Medium Green */
+            --color-accent-secondary: #A5D6A7; /* Light Green */
+            --color-card-dark-bg: #2C5F36; /* Slightly lighter dark green for cards on light sections */
+
+            /* Text Colors */
+            --color-text-on-dark: #FFFFFF; /* White text on dark backgrounds */
+            --color-text-on-light: #224229; /* Dark text on light backgrounds */
+            --color-text-muted-dark-bg: #B0B0B0; /* Light gray for muted text on dark backgrounds */
+            --color-text-muted-light-bg: #4CAF50; /* Medium green for muted text on light backgrounds */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-dark-primary);
+            color: var(--color-text-on-dark); /* Default text color is white */
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+        }
+
+        /* --- Video Background Styling --- */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-background iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover; /* Ensures the video covers the area without distortion */
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.75); /* Dark overlay */
+            z-index: 0;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-load {
+            opacity: 0;
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            transform: translateY(20px);
+        }
+
+        .animate-on-load.is-visible {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* --- Theme Section Colors --- */
+        .section-bg-dark {
+            background-color: var(--color-dark-primary);
+            color: var(--color-text-on-dark);
+        }
+
+        .section-bg-light {
+            background-color: var(--color-light-bg);
+            color: var(--color-text-on-light);
+        }
+
+        /* Accent text colors on dark background */
+        .text-primary-accent {
+            color: var(--color-accent-primary);
+        }
+
+        .text-secondary-accent {
+            color: var(--color-accent-secondary);
+        }
+
+        /* Button/element background color */
+        .bg-primary-accent {
+            background-color: var(--color-accent-primary);
+        }
+
+        .bg-primary-accent:hover {
+            background-color: #5cb85c; /* Slightly darker green on hover */
+        }
+
+        /* Adjust text colors for sections with light background */
+        .section-bg-light .text-primary-accent {
+            color: var(--color-text-on-light); /* Dark green for headings on light background */
+        }
+        .section-bg-light .text-secondary-accent {
+            color: var(--color-accent-primary); /* Medium green for accent on light background */
+        }
+        .section-bg-light .text-muted {
+            color: var(--color-text-muted-light-bg) !important; /* Muted green text on light background */
+        }
+        .section-bg-light .card-custom {
+             background-color: var(--color-card-dark-bg); /* Darker card background on light section */
+             color: var(--color-text-on-dark); /* White text inside dark cards */
+        }
+        .section-bg-light .card-custom .card-title {
+            color: var(--color-accent-secondary); /* Light green for card titles */
+        }
+        .section-bg-light .card-custom .card-text {
+            color: var(--color-text-muted-dark-bg); /* Muted text for card body */
+        }
+
+        /* Form control styling */
+        .form-control-custom {
+            background-color: var(--color-card-dark-bg);
+            border: 1px solid var(--color-accent-primary);
+            color: var(--color-text-on-dark);
+        }
+
+        .form-control-custom::placeholder {
+            color: var(--color-text-muted-dark-bg);
+        }
+
+        .form-control-custom:focus {
+            background-color: var(--color-card-dark-bg);
+            border-color: var(--color-accent-secondary);
+            box-shadow: 0 0 0 0.25rem rgba(165, 214, 167, 0.25); /* Light green shadow */
+            color: var(--color-text-on-dark);
+        }
+        .form-label {
+            color: var(--color-text-on-dark); /* Labels are on dark cards, so light text */
+        }
+
+
+        /* Card styling */
+        .card-custom {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            border-radius: 0.75rem;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Button styling */
+        .btn-custom {
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Carousel specific styles */
+        #productCarousel .carousel-item img {
+            width: 100%;
+            height: 400px; /* Fixed height for carousel images */
+            object-fit: cover;
+            border-radius: 0.75rem;
+        }
+
+        #productCarousel .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            bottom: 1rem;
+        }
+
+        #productCarousel .carousel-caption h5 {
+            color: var(--color-accent-secondary);
+        }
+
+        #productCarousel .carousel-caption p {
+            color: var(--color-text-on-dark);
+        }
+
+        /* Adjust carousel controls for visibility */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: none; /* Reset filter, Bootstrap's default should be fine or use white */
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e"); /* White SVG for visibility */
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: var(--color-text-muted-dark-bg);
+        }
+
+        .carousel-indicators .active {
+            background-color: var(--color-text-on-dark);
+        }
+
+        /* Footer social icon hover effects */
+        .hover-blue:hover { color: #007bff !important; }
+        .hover-pink:hover { color: #e83e8c !important; }
+        .hover-blue-light:hover { color: #17a2b8 !important; }
+        .hover-blue-dark:hover { color: #0056b3 !important; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="video-background">
+            <iframe id="backgroundVideo"
+                    src=""
+                    frameborder="0"
+                    allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    title="Background Video">
+            </iframe>
+            <div class="overlay"></div>
+        </div>
+
+        <div class="container position-relative z-1 p-4 animate-on-load" style="transition-delay: 0.2s;">
+            <img src="imgi_136_3rdplanet-logo-320x132-1.webp" alt="3rd Planet UK Logo"
+                 class="img-fluid mb-4 rounded shadow-lg" style="max-width: 320px;"
+                 onerror="this.onerror=null;this.src='https://placehold.co/320x132/224229/FFFFFF?text=3rd+Planet+Logo';">
+            <h1 class="display-3 fw-bolder mb-3 text-secondary-accent drop-shadow">3rd Planet UK</h1>
+            <p class="lead fw-normal mb-4 drop-shadow">Sustainable Clothing for Men and Women</p>
+            <div class="bg-danger bg-opacity-75 p-4 rounded-lg shadow-lg d-inline-block">
+                <p class="fs-5 fw-bold mb-2">Website Under Maintenance: We're enhancing your experience!</p>
+                <p class="fs-6 mb-0">Please use the order form below for urgent enquiries or to place an order.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ethically Made Section -->
+    <section class="py-5 px-4 section-bg-light animate-on-load" style="transition-delay: 0.4s;">
+        <div class="container text-center">
+            <h2 class="display-4 fw-bold mb-4 text-primary-accent">Ethically Made, Eco-Friendly Streetwear</h2>
+            <p class="fs-5 leading-relaxed mb-4">
+                For the environmentally conscious. Our 100% organic cotton, unisex style clothing embodies the Slow Fashion Movement.
+            </p>
+            <p class="fs-5 leading-relaxed">
+                Help us make a positive change for the future health of our planet.
+            </p>
+            <p class="small mt-5 text-muted">
+                <span class="fw-semibold">Keywords:</span> ethically made, eco-friendly, streetwear, organic cotton, unisex clothing, slow fashion, sustainable living, planet health.
+            </p>
+        </div>
+    </section>
+
+    <!-- Product Categories Section -->
+    <section class="py-5 px-4 section-bg-dark animate-on-load" style="transition-delay: 0.6s;">
+        <div class="container">
+            <h2 class="display-4 fw-bold text-center mb-5 text-primary-accent">Our Product Categories</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-md-3">
+                    <div class="card card-custom h-100 text-center rounded-xl bg-primary-accent">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <h3 class="card-title fs-4 fw-semibold text-white">T-SHIRTS</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card card-custom h-100 text-center rounded-xl bg-primary-accent">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <h3 class="card-title fs-4 fw-semibold text-white">SWEATSHIRTS</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card card-custom h-100 text-center rounded-xl bg-primary-accent">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <h3 class="card-title fs-4 fw-semibold text-white">JOGGERS</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="card card-custom h-100 text-center rounded-xl bg-primary-accent">
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <h3 class="card-title fs-4 fw-semibold text-white">HOODIES</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keep Me® Rewards Section -->
+    <section class="py-5 px-4 section-bg-light animate-on-load" style="transition-delay: 0.8s;">
+        <div class="container">
+            <h2 class="display-4 fw-bold text-center mb-5 text-primary-accent">Introducing Keep Me® Rewards</h2>
+            <p class="lead text-center mb-5 text-muted">Celebrating Every Wear - Make every wear count</p>
+
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 order-md-2">
+                    <img src="https://placehold.co/600x400/A5D6A7/224229?text=Keep+Me+QR+Code" alt="Keep Me QR Code" class="img-fluid rounded-xl shadow-lg mb-4 mb-md-0">
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <h3 class="fs-2 fw-bold mb-3 text-secondary-accent">Track Your Number of Wears</h3>
+                    <p class="fs-5 mb-3 text-muted">
+                        Scan your Keep Me QR code every time you wear your 3rd planet item and keep track of your environmental footprint.
+                    </p>
+                    <p class="fs-6 text-muted">
+                        Each garment comes with a unique QR code that allows you to track your item usage.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-center mt-5">
+                <div class="col-md-6">
+                    <img src="https://placehold.co/600x400/66BB6A/F8F8F8?text=Environmental+Contribution" alt="Environmental Contribution" class="img-fluid rounded-xl shadow-lg mb-4 mb-md-0">
+                </div>
+                <div class="col-md-6">
+                    <h3 class="fs-2 fw-bold mb-3 text-secondary-accent">Your Environmental Contribution</h3>
+                    <p class="fs-5 mb-3 text-muted">
+                        Get an email after every wear which quantifies your sustainability footprint in terms of key waste savings.
+                    </p>
+                    <p class="fs-6 text-muted">
+                        Receive an email update with each wear count to track your journey towards 50 wears.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-center mt-5">
+                <div class="col-md-6 order-md-2">
+                    <img src="https://placehold.co/600x400/2C5F36/FFFFFF?text=Unlock+Rewards" alt="Unlock Keep Me Rewards" class="img-fluid rounded-xl shadow-lg mb-4 mb-md-0">
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <h3 class="fs-2 fw-bold mb-3 text-secondary-accent">Unlock Your Keep Me® Rewards</h3>
+                    <p class="fs-5 mb-3 text-muted">
+                        Reach 50 wears and choose from two exclusive rewards for embracing slow fashion and making a positive environmental impact.
+                    </p>
+                    <p class="fs-6 text-muted">
+                        Unlock exclusive rewards after 50 wears as a thank-you for supporting sustainable fashion.
+                    </p>
+                </div>
+            </div>
+            <p class="small mt-5 text-muted text-center">
+                <span class="fw-semibold">Keywords:</span> Keep Me Rewards, slow fashion, sustainable living, environmental footprint, wear count, exclusive rewards, eco-conscious.
+            </p>
+        </div>
+    </section>
+
+    <!-- Product Gallery Section (Carousel) -->
+    <section class="py-5 px-4 section-bg-dark animate-on-load" style="transition-delay: 1.0s;">
+        <div class="container">
+            <h2 class="display-4 fw-bold text-center mb-5 text-primary-accent">Product Gallery</h2>
+            <div id="productCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <!-- Indicators will be dynamically generated by JS -->
+                </div>
+                <div class="carousel-inner">
+                    <!-- Carousel items will be dynamically generated by JS -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-5 px-4 section-bg-light animate-on-load" style="transition-delay: 1.2s;">
+        <div class="container text-center">
+            <h2 class="display-4 fw-bold mb-5 text-primary-accent">Why Choose 3rd Planet UK?</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-4 card-custom h-100">
+                        <i class="fas fa-leaf text-secondary-accent mb-3" style="font-size: 3rem;"></i>
+                        <h3 class="fs-4 fw-semibold mb-2">Eco-Friendly Materials</h3>
+                        <p class="text-muted">Utilizing organic cotton, recycled polyester, hemp, and more.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 card-custom h-100">
+                        <i class="fas fa-handshake text-secondary-accent mb-3" style="font-size: 3rem;"></i>
+                        <h3 class="fs-4 fw-semibold mb-2">Ethical Production</h3>
+                        <p class="text-muted">Fair wages, safe working conditions, and transparent supply chains.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 card-custom h-100">
+                        <i class="fas fa-recycle text-secondary-accent mb-3" style="font-size: 3rem;"></i>
+                        <h3 class="fs-4 fw-semibold mb-2">Circular Fashion</h3>
+                        <p class="text-muted">Designing for longevity and promoting recycling initiatives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 px-4 section-bg-dark animate-on-load" style="transition-delay: 1.4s;">
+        <div class="container text-center">
+            <h2 class="display-4 fw-bold mb-5 text-primary-accent">What Our Customers Say</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="p-4 card-custom mb-4 italic">
+                        <p class="fs-5 mb-3">"Absolutely love my new organic cotton tee! The quality is amazing, and it feels great to know I'm supporting a sustainable brand."</p>
+                        <p class="fs-6 fw-semibold text-secondary-accent">- Sarah L.</p>
+                    </div>
+                    <div class="p-4 card-custom italic">
+                        <p class="fs-5 mb-3">"Finally, stylish clothes that are also good for the planet. 3rd Planet UK is my new go-to for all my ethical fashion needs."</p>
+                        <p class="fs-6 fw-semibold text-secondary-accent">- Mark T.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order/Contact Form Section -->
+    <section class="py-5 px-4 section-bg-light animate-on-load" style="transition-delay: 1.6s;">
+        <div class="container">
+            <h2 class="display-4 fw-bold text-center mb-5 text-primary-accent">Place an Order or Get in Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="orderForm" class="card-custom p-5">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control form-control-custom" id="name" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" class="form-control form-control-custom" id="email" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number (Optional)</label>
+                            <input type="tel" class="form-control form-control-custom" id="phone" name="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="productEnquiry" class="form-label">Product/Enquiry Details</label>
+                            <textarea class="form-control form-control-custom" id="productEnquiry" name="productEnquiry" rows="4" placeholder="e.g., 'Order for Organic Cotton Tee - Large, Black' or 'Enquiry about sustainable sourcing.'" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity (if applicable)</label>
+                            <input type="number" class="form-control form-control-custom" id="quantity" name="quantity" min="1">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Additional Message</label>
+                            <textarea class="form-control form-control-custom" id="message" name="message" rows="4" placeholder="Any other details or questions..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-block bg-primary-accent text-white fw-bold w-100 btn-custom">Send Enquiry</button>
+                        <p id="formMessage" class="mt-4 text-center text-secondary-accent fw-semibold"></p>
+                        <p class="small mt-4 text-center text-muted">
+                            Note: This form demonstrates data capture. For actual email delivery, a server-side script or third-party service is required.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 px-4 section-bg-dark animate-on-load" style="transition-delay: 1.8s;">
+        <div class="container text-center">
+            <h3 class="fs-4 fw-bold mb-3 text-primary-accent">Connect With Us</h3>
+            <div class="d-flex justify-content-center mb-4">
+                <a href="https://facebook.com/3rdplanetuk" target="_blank" rel="noopener noreferrer" class="text-white mx-3 fs-3 hover-blue">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com/3rdplanetuk" target="_blank" rel="noopener noreferrer" class="text-white mx-3 fs-3 hover-pink">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com/3rdplanetuk" target="_blank" rel="noopener noreferrer" class="text-white mx-3 fs-3 hover-blue-light">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com/company/3rdplanetuk" target="_blank" rel="noopener noreferrer" class="text-white mx-3 fs-3 hover-blue-dark">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+            <p class="text-muted mb-2">Email: info@3rdplanet.uk | Phone: +44 1234 567890</p>
+            <p class="text-muted">&copy; <span id="currentYear"></span> 3rd Planet UK. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backgroundVideo = document.getElementById('backgroundVideo');
+            const logoPath = 'imgi_136_3rdplanet-logo-320x132-1.webp'; // Path to the uploaded logo
+            const currentYearSpan = document.getElementById('currentYear');
+            const orderForm = document.getElementById('orderForm');
+            const formMessage = document.getElementById('formMessage');
+            const carouselInner = document.querySelector('#productCarousel .carousel-inner');
+            const carouselIndicators = document.querySelector('#productCarousel .carousel-indicators');
+
+            // Set current year in footer
+            currentYearSpan.textContent = new Date().getFullYear();
+
+            // Function to set video source (always the same for desktop and mobile)
+            function setVideoSource() {
+                backgroundVideo.src = 'https://www.youtube.com/embed/ZvwTcSS_QOc?autoplay=1&controls=0&loop=1&mute=1&playlist=ZvwTcSS_QOc';
+            }
+
+            // Set initial video source and add resize listener
+            setVideoSource();
+            window.addEventListener('resize', setVideoSource);
+
+            // Handle form submission
+            orderForm.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevent default form submission
+
+                const formData = new FormData(orderForm);
+                const formValues = {};
+                for (let [key, value] of formData.entries()) {
+                    formValues[key] = value;
+                }
+
+                console.log('Order Form Submitted:', formValues);
+                formMessage.textContent = 'Thank you for your order/enquiry! We will get back to you shortly.';
+                formMessage.style.color = 'var(--color-accent-secondary)'; // Accent color for success message
+
+                // Reset the form after a short delay
+                setTimeout(() => {
+                    orderForm.reset();
+                    formMessage.textContent = '';
+                }, 3000);
+
+                // IMPORTANT: For actual email sending, you would need a backend service.
+                // This client-side JavaScript cannot directly send emails to order@3rdplanet.uk.
+                // You would typically use a server-side script (e.g., Node.js, Python, PHP)
+                // or a third-party service (e.g., Formspree, Netlify Forms, SendGrid)
+                // to handle the email sending process securely.
+                // Example of a conceptual fetch to a backend endpoint:
+                /*
+                fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formValues)
+                })
+                .then(response => response.json())
+                .then(data => console.log('Email send status:', data))
+                .catch(error => console.error('Error sending email:', error));
+                */
+            });
+
+            // Function to load product images into the carousel
+            function loadProductImages() {
+                // IMPORTANT: Since direct file system access is not possible from client-side JS,
+                // we simulate loading images by providing an array of expected image filenames.
+                // You MUST ensure these files exist in your /img/products/ folder.
+                const productImages = [
+                    { src: 'img/products/tshirt1.webp', alt: 'Organic T-Shirt', title: 'Organic T-Shirt', description: 'Comfortable and sustainable.' },
+                    { src: 'img/products/sweatshirt1.webp', alt: 'Eco Sweatshirt', title: 'Eco Sweatshirt', description: 'Warm and ethically made.' },
+                    { src: 'img/products/jogger1.webp', alt: 'Unisex Joggers', title: 'Unisex Joggers', description: 'Perfect for comfort and style.' },
+                    { src: 'img/products/hoodie1.webp', alt: 'Sustainable Hoodie', title: 'Sustainable Hoodie', description: 'Soft, durable, and eco-friendly.' },
+                    { src: 'img/products/tshirt2.webp', alt: 'Graphic Tee', title: 'Graphic Tee', description: 'Unique designs, organic fabric.' },
+                    { src: 'img/products/sweatshirt2.webp', alt: 'Recycled Sweatshirt', title: 'Recycled Sweatshirt', description: 'Made from recycled materials.' }
+                    // Add more product images here following the same structure
+                ];
+
+                carouselInner.innerHTML = ''; // Clear existing items
+                carouselIndicators.innerHTML = ''; // Clear existing indicators
+
+                productImages.forEach((product, index) => {
+                    // Create carousel item
+                    const carouselItem = document.createElement('div');
+                    carouselItem.classList.add('carousel-item');
+                    if (index === 0) {
+                        carouselItem.classList.add('active'); // First item is active
+                    }
+
+                    carouselItem.innerHTML = `
+                        <img src="${product.src}" class="d-block w-100" alt="${product.alt}"
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x400/224229/FFFFFF?text=${product.title.replace(/\s/g, '+')}';">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>${product.title}</h5>
+                            <p>${product.description}</p>
+                        </div>
+                    `;
+                    carouselInner.appendChild(carouselItem);
+
+                    // Create carousel indicator
+                    const indicatorButton = document.createElement('button');
+                    indicatorButton.setAttribute('type', 'button');
+                    indicatorButton.setAttribute('data-bs-target', '#productCarousel');
+                    indicatorButton.setAttribute('data-bs-slide-to', index);
+                    indicatorButton.setAttribute('aria-label', `Slide ${index + 1}`);
+                    if (index === 0) {
+                        indicatorButton.classList.add('active');
+                        indicatorButton.setAttribute('aria-current', 'true');
+                    }
+                    carouselIndicators.appendChild(indicatorButton);
+                });
+            }
+
+            // Load products into the carousel
+            loadProductImages();
+
+            // Intersection Observer for scroll animations
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            // Observe all sections that should animate
+            document.querySelectorAll('.animate-on-load').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
